@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max App - Космический черный экран (2025)</title>
+    <link rel="icon" href="max.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Космический фон на весь экран -->
+    <div class="space-background">
+        <div class="stars" id="stars"></div>
+        <div class="planet" style="width: 120px; height: 120px; top: 10%; right: 5%;"></div>
+        <div class="planet" style="width: 80px; height: 80px; bottom: 15%; left: 5%; background: radial-gradient(circle at 30% 30%, #6A0DAD, #4A235A);"></div>
+        <div class="comet" style="top: 30%; left: 0;"></div>
+        <div class="comet" style="top: 70%; left: 0; animation-delay: 7s;"></div>
+        
+        <!-- Туманности -->
+        <div class="nebula" style="width: 300px; height: 300px; top: 20%; left: 10%; background: #4A235A;"></div>
+        <div class="nebula" style="width: 400px; height: 400px; bottom: 10%; right: 15%; background: #6A0DAD;"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Max App</h1>
+            <p class="subtitle">Космический черный экран для Android</p>
+            <div class="year-badge">2025</div>
+        </div>
+
+        <div class="app-icon-container">
+            <img src="max.ico" alt="Иконка Max App" class="app-icon">
+        </div>
+
+        <div class="description">
+            <p>Max App превращает ваш телефон в космический черный экран! Идеальное решение для тех, кто хочет сделать вид, что устройство выключено. Просто нажмите кнопку - и ваш экран станет черным как космос!</p>
+        </div>
+
+        <div class="download-section">
+            <a href="max.apk" download="max.apk">
+                <button class="download-btn">
+                    <i class="fas fa-download"></i> Скачать приложение
+                </button>
+            </a>
+            <p style="margin-top: 10px; color: #c9b2e6;">Версия 2.5 | Android 8.0+</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3><i class="fas fa-rocket"></i> Мгновенный запуск</h3>
+                <p>Активируйте черный экран одним касанием. Мгновенная работа без задержек.</p>
+            </div>
+            <div class="feature">
+                <h3><i class="fas fa-moon"></i> Реалистичность</h3>
+                <p>Экран выглядит как полностью выключенный, без подсветки и видимых элементов.</p>
+            </div>
+            <div class="feature">
+                <h3><i class="fas fa-shield-alt"></i> Безопасность</h3>
+                <p>Приложение не требует специальных разрешений и не собирает данные.</p>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2><i class="fas fa-book-open"></i> Как использовать</h2>
+            <ol>
+                <li>Скачайте и установите приложение</li>
+                <li>Запустите Max App с главного экрана</li>
+                <li>Коснитесь экрана для активации черного режима</li>
+                <li>Для выхода нажмите кнопку "Назад" или кнопку питания</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p><i class="far fa-copyright"></i> 2025 Max App | Космические технологии для школы</p>
+        </div>
+    </div>
+
+    <script>
+        // Создание звездного неба
+        document.addEventListener('DOMContentLoaded', function() {
+            const starsContainer = document.getElementById('stars');
+            const starsCount = 200;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+            
+            // Добавляем дополнительные кометы
+            for (let i = 0; i < 5; i++) {
+                const comet = document.createElement('div');
+                comet.classList.add('comet');
+                comet.style.top = `${Math.random() * 100}%`;
+                comet.style.left = '0';
+                comet.style.animationDelay = `${Math.random() * 20}s`;
+                document.querySelector('.space-background').appendChild(comet);
+            }
+            
+            // Добавляем адаптацию для TV
+            if (window.innerWidth >= 1200 && window.innerHeight >= 800) {
+                document.querySelectorAll('.feature, .description, .instructions').forEach(el => {
+                    el.style.fontSize = '1.1rem';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
